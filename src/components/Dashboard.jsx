@@ -24,9 +24,9 @@ const Dashboard = () => {
   const toggleVendorStatus = async (vendorId, currentStatus) => {
     try {
       const newStatus = currentStatus === "Active" ? "Inactive" : "Active";
-
+  
       const response = await fetch(
-        `http://localhost:3000/api/v1/updatevendorstatus/${vendorId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/updatevendorstatus/${vendorId}`,
         {
           method: "PUT",
           headers: {
@@ -36,7 +36,7 @@ const Dashboard = () => {
           body: JSON.stringify({ status: newStatus }),
         }
       );
-
+  
       const result = await response.json();
       if (result.response === "success") {
         fetchVendors();
@@ -47,6 +47,7 @@ const Dashboard = () => {
       console.error("Error:", error);
     }
   };
+  
 
   return (
     <div className="main-page-home">
