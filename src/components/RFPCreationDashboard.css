@@ -1,0 +1,12 @@
+.submit-btn{
+    padding: 5px 10px;
+}
+.category-form{
+    height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.category-form select{
+    height: 30px;
+}

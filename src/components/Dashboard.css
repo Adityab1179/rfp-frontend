@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    
+  }
+  th{
+    color:white;
+    background-color: #27333A;
+    padding: 15px;
+  }
+  .active{
+    background-color: green;
+  }
+  .inactive{
+    background-color: red;
+  }

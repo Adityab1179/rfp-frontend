@@ -1,0 +1,35 @@
+.navbar{
+    width: 22%;
+    background-color: #27333A;
+    font-family: "Roboto", sans-serif;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    width: 65%;
+}
+.nav-items{
+    height: 89%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    padding: 30px 30px;
+}
+.nav-category{
+    display: flex;
+    gap:5%;
+    color: #788086;
+    
+}
+.nav-category:hover{
+    cursor: pointer;
+    color: #F2F2F2;
+}
+.nav-category a{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
