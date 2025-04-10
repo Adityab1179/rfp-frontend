@@ -9,6 +9,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const token = localStorage.getItem("token");
   const handleChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
