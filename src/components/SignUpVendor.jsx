@@ -163,16 +163,16 @@ const SignUpVendor = () => {
             </div>
 
             {errors.form && <span className="error-span">{errors.form}</span>}
-
+            <div style={{display:'flex', justifyContent:"center"}}>
             <button type="submit" className="login-button">
               Register
-            </button>
+            </button></div>
           </div>
         </form>
 
         <div className="vendor-register-btn">
-          <Link to="/registeradmin">
-            <p>Register as Admin</p>
+          <Link to="/">
+            <p>Already have an account? <span style={{color:"blue"}}>Login</span></p>
           </Link>
           <Link to="/resetpassword">
             <p>Forgot Your Password</p>

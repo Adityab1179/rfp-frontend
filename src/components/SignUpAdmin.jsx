@@ -15,23 +15,29 @@ const Login = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setFormData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/registeradmin`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://rfp-backend-wxmu.onrender.com/api/v1/registeradmin`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
-      
+
       if (data.response === "success") {
         navigate("/");
       } else if (data.response === "error") {
@@ -108,14 +114,23 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
-
+          {errors.confirmPassword && (
+            <p className="error">{errors.confirmPassword}</p>
+          )}
+          <div style={{display:'flex', justifyContent:"center"}}>
           <button type="submit">Register</button>
+          </div>
         </form>
 
         <div className="vendor-register-btn">
           <Link to={"/registervendor"}>
             <p>Register as Vendor</p>
+          </Link>
+          <Link to="/">
+            <p>
+              Already have an account?{" "}
+              <span style={{ color: "blue" }}>Login</span>
+            </p>
           </Link>
           <Link to={"/resetpassword"}>
             <p>Forgot Your Password?</p>

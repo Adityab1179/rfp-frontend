@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import("./RFPCreation.css");
+import "./RFPCreation.css"
 
 const RfpDetails = () => {
   const location = useLocation();
@@ -103,7 +103,7 @@ const RfpDetails = () => {
       if (data.response === "success") {
         alert("RFP submitted successfully!");
       } else {
-        alert("Failed to submit RFP: " + data.error);
+        setErrors(data.errors)
       }
     } catch (error) {
       console.error("Error submitting RFP:", error);
@@ -118,71 +118,85 @@ const RfpDetails = () => {
       <form onSubmit={handleSubmit}>
         <div className="rfp-container-category">
           <label>Item Name*</label>
+          
           <input
             type="text"
             name="itemName"
             placeholder="Item Name"
             onChange={handleChange}
-          />
+          /><div className="rfp-container-category-input">
           {errors.itemName && <p className="error">{errors.itemName}</p>}
+          </div>
         </div>
         <div className="rfp-container-category">
           {" "}
           <label>Item Description*</label>
+          
           <input
             type="text"
             name="itemDescription"
             placeholder="Item Description"
             onChange={handleChange}
           />
+          <div className="rfp-container-category-input">
           {errors.itemDescription && (
             <p className="error">{errors.itemDescription}</p>
           )}
+          </div>
         </div>
 
         <div className="rfp-container-category">
           <label>Quantity*</label>
+          
           <input
             type="number"
             name="itemQuantity"
             placeholder="Quantity"
             onChange={handleChange}
-          />
+          /><div className="rfp-container-category-input">
           {errors.itemQuantity && (
             <p className="error">{errors.itemQuantity}</p>
           )}
+          </div>
         </div>
         <div className="rfp-container-category">
           <label>Last Date*</label>
-          <input type="date" name="lastDate" onChange={handleChange} />
+          
+          <input type="date" name="lastDate" className="lastDate" onChange={handleChange} />
+          <div className="rfp-container-category-input">
           {errors.lastDate && <p className="error">{errors.lastDate}</p>}
+          </div>
         </div>
         <div className="rfp-container-category">
           <label>Minimum Price*</label>
+          
           <input
             type="number"
             name="minimumPrice"
             placeholder="Minimum Price"
             onChange={handleChange}
-          />
+          /><div className="rfp-container-category-input">
           {errors.minimumPrice && (
             <p className="error">{errors.minimumPrice}</p>
           )}
+          </div>
         </div>
         <div className="rfp-container-category">
           <label>Maximum Price*</label>
+          
           <input
             type="number"
             name="maximumPrice"
             placeholder="Maximum Price"
             onChange={handleChange}
-          />
+          /><div className="rfp-container-category-input">
           {errors.maximumPrice && (
             <p className="error">{errors.maximumPrice}</p>
           )}
+          </div>
         </div>
         <h3>Vendors Matching Category: {category}</h3>
-        <label>Select Vendors</label>
+        <div className="Vendors"><label>Select Vendors</label>
         <select multiple onChange={handleVendorSelection}>
           {vendors.length > 0 ? (
             vendors.map((vendor) => (
@@ -194,11 +208,13 @@ const RfpDetails = () => {
             <option disabled>No vendors available</option>
           )}
         </select>
+        </div>
+        <div className="rfp-container-category-input">
         {errors.selectedVendors && (
           <p className="error">{errors.selectedVendors}</p>
-        )}
+        )}</div>
 
-        <button type="submit">Submit</button>
+        <div className="submit-btn"><button type="submit">Submit</button></div>
       </form>
     </div>
   );

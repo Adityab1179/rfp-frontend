@@ -94,3 +94,6 @@ html,body{
   .vendor-register-btn a{
    color: black;
   }
+  form input{
+    width: 100%;
+  }

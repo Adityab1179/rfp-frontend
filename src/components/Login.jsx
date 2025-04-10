@@ -79,10 +79,11 @@ const Login = () => {
               onChange={handleChange}
               required
             />
+            <div className="login-btn" style={{display:'flex', justifyContent:"center"}}>
             <button type="submit" className="login-button">
               Log in
             </button>
-
+            </div>
             {errorMessage.length > 0 && (
               <div className="error-messages">
                 {errorMessage.map((err, index) => (

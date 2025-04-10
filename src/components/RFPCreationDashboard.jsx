@@ -50,6 +50,7 @@ function RFPCreationDashboard() {
           <h3>Vendors</h3>
         </div>
         <form onSubmit={handleSubmit} className="category-form">
+          <div>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -61,6 +62,7 @@ function RFPCreationDashboard() {
               </option>
             ))}
           </select>
+          </div>
           <div>
             {" "}
             <button type="submit" className="submit-btn">
