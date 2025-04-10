@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/registeradmin`, {
+      const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/registeradmin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

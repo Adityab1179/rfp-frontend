@@ -6,7 +6,7 @@ function RFPView() {
   useEffect(() => {
     const fetchRFP = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/rfpview`);
+        const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/rfpview`);
         const data = await response.json();
         setRFPS(data.RFPs);
         setLastDate(data.RFPs.lastDate)

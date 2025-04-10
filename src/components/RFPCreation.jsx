@@ -18,7 +18,7 @@ const RfpDetails = () => {
   const [vendors, setVendors] = useState([]);
   const [category, setCategory] = useState("");
   const [selectedVendors, setSelectedVendors] = useState([]);
-  const [errors, setErrors] = useState({}); // State for errors
+  const [errors, setErrors] = useState({});
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const RfpDetails = () => {
 
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/v1/getVendorsById?categoryId=${categoryId}`,
+          `https://rfp-backend-wxmu.onrender.com/api/v1/getVendorsById?categoryId=${categoryId}`,
           {
             method: "GET",
             headers: {
@@ -45,7 +45,7 @@ const RfpDetails = () => {
 
     const fetchCategories = async () => {
       const response = await fetch(
-       `${process.env.REACT_APP_API_URL}/api/v1/getCategoryById/${categoryId}`,
+       `https://rfp-backend-wxmu.onrender.com/api/v1/getCategoryById/${categoryId}`,
         {
           method: "GET",
           headers: {
@@ -64,7 +64,7 @@ const RfpDetails = () => {
 
   const handleChange = (e) => {
     setRfpData({ ...rfpData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // Clear error on change
+    setErrors({ ...errors, [e.target.name]: "" }); 
   };
 
   const handleVendorSelection = (e) => {
@@ -73,7 +73,7 @@ const RfpDetails = () => {
       (option) => option.value
     );
     setSelectedVendors(selectedOptions);
-    setErrors({ ...errors, selectedVendors: "" }); // Clear error
+    setErrors({ ...errors, selectedVendors: "" }); 
   };
 
   const handleSubmit = async (e) => {
@@ -86,7 +86,7 @@ const RfpDetails = () => {
     };
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/submitRfp`, {
+      const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/submitRfp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

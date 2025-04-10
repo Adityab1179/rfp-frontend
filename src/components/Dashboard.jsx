@@ -6,7 +6,6 @@ const Dashboard = () => {
   const [data,setData]=useState([])
   const token=sessionStorage.getItem("token")
 
-  // Fetch Vendors
   useEffect(() => {
     
     fetchVendors();
@@ -14,7 +13,7 @@ const Dashboard = () => {
 
   const fetchVendors = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/listvendors`);
+      const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/listvendors`);
       const data = await response.json();
       setVendors(data.data);
     } catch (error) {
@@ -26,7 +25,7 @@ const Dashboard = () => {
       const newStatus = currentStatus === "Active" ? "Inactive" : "Active";
   
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/v1/updatevendorstatus/${vendorId}`,
+        `https://rfp-backend-wxmu.onrender.com/api/v1/updatevendorstatus/${vendorId}`,
         {
           method: "PUT",
           headers: {

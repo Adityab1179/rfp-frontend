@@ -17,7 +17,7 @@ const Categories = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}api/v1/categories`, {
+        const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/categories`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const Categories = () => {
 
   const handleSaveClick = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}api/v1/categories/update-multiple`, {
+      const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/categories/update-multiple`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

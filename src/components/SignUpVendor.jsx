@@ -23,7 +23,7 @@ const SignUpVendor = () => {
   });
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/v1/categories`)
+    fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/categories`)
       .then((res) => res.json())
       .then((data) => {
         if (data.categories?.length === 0) {
@@ -57,7 +57,7 @@ const SignUpVendor = () => {
     setErrors({});
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/registervendor`, {
+      const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/registervendor`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
