@@ -4,7 +4,7 @@ import "./Categories.css";
 
 const Categories = () => {
   const navigate = useNavigate();
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const [categories, setCategories] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editedCategories, setEditedCategories] = useState([]);

@@ -1,5 +1,14 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./MainPageHome.css";
 const MainPageHome = () => {
+  const token=localStorage.getItem("token");
+  const navigate=useNavigate();
+  useEffect(()=>{
+    if(!token){
+      navigate("/")
+    }
+  },[])
   return (
     <div className="main-page-home">
       <div className="main-page-home-header">

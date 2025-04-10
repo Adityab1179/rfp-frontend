@@ -13,8 +13,8 @@ const AdminDashboard = () => {
   const navigate=useNavigate();
   useEffect(() => {
     document.title = "ASSAM FLOOD";
-    const token = sessionStorage.getItem("token");
-    const role = sessionStorage.getItem("role");
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
 
     if (!token || role !== "Admin") {
       navigate("/");

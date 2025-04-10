@@ -19,9 +19,12 @@ const RfpDetails = () => {
   const [category, setCategory] = useState("");
   const [selectedVendors, setSelectedVendors] = useState([]);
   const [errors, setErrors] = useState({});
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
+    if(!token){
+      navigate("/")
+    }
     const fetchVendors = async () => {
       if (!category) return;
 

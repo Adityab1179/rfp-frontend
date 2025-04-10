@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const navigate=useNavigate();
   const [vendors, setVendors] = useState([]);
   const [data,setData]=useState([])
-  const token=sessionStorage.getItem("token")
+  const token=localStorage.getItem("token")
 
   useEffect(() => {
-    
+    if(!token){
+      navigate("/")
+    }
     fetchVendors();
   }, []);
 

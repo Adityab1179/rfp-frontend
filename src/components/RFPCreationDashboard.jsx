@@ -6,7 +6,10 @@ function RFPCreationDashboard() {
   const [category, setCategory] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
+    if(!token){
+      navigate("/")
+    }
     const fetchCategories = async () => {
       try {
         const response = await fetch(

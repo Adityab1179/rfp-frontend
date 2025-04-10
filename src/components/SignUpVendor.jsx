@@ -34,7 +34,7 @@ const SignUpVendor = () => {
         setLoading(false);
       })
       .catch(() => {
-        setError("Failed to load categories.");
+        setErrors("Failed to load categories.");
         setLoading(false);
       });
   }, []);

@@ -7,15 +7,15 @@ import RFPView from "./RFPView";
 
 const AdminDashboard = () => {
   const handleLogOut=()=>{
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("role");
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
     navigate("/");
   }
   const navigate=useNavigate();
   useEffect(() => {
       document.title = "ASSAM FLOOD";
-      const token = sessionStorage.getItem("token");
-      const role = sessionStorage.getItem("role");
+      const token = localStorage.getItem("token");
+      const role = localStorage.getItem("role");
   
       if (!token || role !== "Vendor") {
         navigate("/");

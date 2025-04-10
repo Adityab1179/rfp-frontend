@@ -1,9 +1,15 @@
 import React,{useState} from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function RFPView() {
+  const navigate=useNavigate();
+  const token=localStorage.getItem("token");
     const [RFPs,setRFPS]=useState([])
     const [lastDate,setLastDate]=useState("")
   useEffect(() => {
+    if(!token){
+      navigate("/")
+    }
     const fetchRFP = async () => {
       try {
         const response = await fetch(`https://rfp-backend-wxmu.onrender.com/api/v1/rfpview`);
