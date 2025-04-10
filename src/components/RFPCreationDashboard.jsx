@@ -10,7 +10,7 @@ function RFPCreationDashboard() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          `https://rfp-backend-wxmu.onrender.com//api/v1/categories`,
+          `https://rfp-backend-wxmu.onrender.com/api/v1/categories`,
           {
             method: "GET",
             headers: {
