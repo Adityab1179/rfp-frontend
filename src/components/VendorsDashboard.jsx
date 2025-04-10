@@ -6,6 +6,11 @@ import "./AdminDashboard.css";
 import RFPView from "./RFPView";
 
 const AdminDashboard = () => {
+  const handleLogOut=()=>{
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("role");
+    navigate("/");
+  }
   const navigate=useNavigate();
   useEffect(() => {
       document.title = "ASSAM FLOOD";
@@ -24,7 +29,7 @@ const AdminDashboard = () => {
         <div className="header">
           <div className="header-content">
             <p className="Welcom-text">Welcome</p>
-            <p className="Logout-btn">Logout</p>
+            <p className="Logout-btn" onClick={handleLogOut}>Logout</p>
           </div>
         </div>
         
