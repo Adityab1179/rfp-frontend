@@ -9,7 +9,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const token = localStorage.getItem("token");
   const handleChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -33,8 +32,8 @@ const Login = () => {
       console.log(data);
 
       if (data.response === "success") {
-        sessionStorage.setItem("token", data.token);
-        sessionStorage.setItem("role", data.role);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("role", data.role);
 
         if (data.role === "Admin") {
           navigate("/admin");
